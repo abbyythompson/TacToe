@@ -11,12 +11,9 @@ public class Constants {
 
     public static final String TURN_ACCEPTED = "Move accepted, here's the current board:";
 
-    public static final String TURN_DECLINED = "Oh no, a piece is already at this place! Try again...";
-    public static final String INVALID_INPUT = "wow, please follow my instructions";
-    public static final String QUIT = "wow, I see how it is";
+    public static final String TURN_DECLINED = "Oh no, a piece is already at this place! Try again...\n";
+    public static final String INVALID_INPUT = "wow, please follow my instructions\n";
+    public static final String QUIT = "wow, I see how it is\n";
 
-    public static final String TURN_ACCEPTED_WINNER = "Move accepted, well done you've won the game!  ";
-    public static final String TURN_ACCEPTED_TIE = "A tie!";
-    public static final String GAME_OVER = "Game over";
-
+    public static final String TURN_ACCEPTED_WINNER = "ME OH MY I HAVE ENJOYED THAT YES BOII. You won.";
 }

@@ -53,17 +53,37 @@ public class TicTacToe {
                     System.out.println(Constants.INVALID_INPUT);
 
                 } else {
-                    System.out.println(Constants.TURN_ACCEPTED);
-
                     //analyse move
                     String[] coord = playersMove.split(",");
 
-                    //check for invalid input
-                    game.move(Integer.valueOf(coord[0]) - 1, Integer.valueOf(coord[1]) - 1);
-                    game.checkForWinner();
+                    if(coord.length != 2){
+                        System.out.println(Constants.INVALID_INPUT);
+                    } else {
+                        int row = Integer.valueOf(coord[0]) - 1;
+                        int col = Integer.valueOf(coord[1]) - 1;
 
-                    game.changeTurn();
-                    boardPrinter.printBoard();
+                        if((row <= 2 && row >= 0) && (col <= 2 && col >= 0)){
+                            //check for invalid input
+                            if (game.coordIsFree(row, col)) {
+                                System.out.println(Constants.TURN_ACCEPTED);
+
+                                game.move(row, col);
+
+                                boardPrinter.printBoard();
+
+                                if (game.isWinner()) {
+                                    game.setStatus(Status.FINISHED);
+                                    System.out.println(Constants.TURN_ACCEPTED_WINNER);
+                                }
+
+                                game.changeTurn();
+                            } else {
+                                System.out.println(Constants.TURN_DECLINED);
+                            }
+                        } else {
+                            System.out.println(Constants.INVALID_INPUT);
+                        }
+                    }
                 }
             }
 

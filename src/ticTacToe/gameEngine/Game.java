@@ -13,6 +13,14 @@ public class Game {
         this.status = Status.INIT;
     }
 
+    public boolean coordIsFree(int i, int j){
+        if(boardState[i][j] != 0){
+            return false;
+        }
+
+        return true;
+    }
+
     public void move(int i, int j){
         switch (status) {
             case PLAYER1_TURN:
@@ -36,7 +44,7 @@ public class Game {
     }
 
     //should just check from the last move
-    public void checkForWinner(){
+    public boolean isWinner(){
         int player = 0;
         switch (status) {
             case PLAYER1_TURN:
@@ -49,11 +57,47 @@ public class Game {
 
         int tally = 0;
 
-        for(int i=0; i<3; i++){
-            for(int j=0; j<3; j++) {
-                
+        for(int row=0; row<3; row++){
+            for(int col=0; col<3; col++) {
+                if(boardState[row][col] == player){
+                    tally++;
+                } else {
+                    col = 3;
+                    tally = 0;
+                }
+            }
+            if (tally == 3){
+                return true;
+            } else {
+                tally = 0;
             }
         }
+
+        for(int j=0; j<3; j++){
+            for(int i=0; i<3; i++) {
+                if(boardState[i][j] == player){
+                    tally++;
+                } else {
+                    i = 3;
+                    tally = 0;
+                }
+            }
+            if (tally == 3){
+                return true;
+            } else {
+                tally = 0;
+            }
+        }
+
+        if(boardState[1][1] == player){
+            if (boardState[0][0] == player && boardState[2][2] == player){
+                return true;
+            } else if (boardState[0][2] == player && boardState[2][0] == player){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public int[][] getBoardState() {
