@@ -1,9 +1,9 @@
 # Tic Tac Toe, the game of champions
 A Console Game.  
 
-How to Play. 
+How to Play 
 --
-Download the executable jar file. 
+Download the executable jar file - (TacToe.jar) 
 
 Go to this jar file in your terminal and type "java -jar TacToe.jar"
 
