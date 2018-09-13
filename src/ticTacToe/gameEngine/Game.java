@@ -2,11 +2,12 @@ package ticTacToe.gameEngine;
 
 import ticTacToe.*;
 /**
- * Created by abbythompson on 13/09/18.
+ * Game Engine to run the backend of the game and update the board.
  */
 public class Game {
     protected int[][] boardState;
     private Status status;
+    private int numberTurns = 0;
 
     public Game() {
         this.boardState = new int[3][3];
@@ -30,6 +31,8 @@ public class Game {
                 boardState[i][j] = 2;
                 break;
         };
+
+        numberTurns++;
     }
 
     public void changeTurn(){
@@ -98,6 +101,14 @@ public class Game {
         }
 
         return false;
+    }
+
+    public boolean isDraw() {
+        if(numberTurns > 8){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int[][] getBoardState() {

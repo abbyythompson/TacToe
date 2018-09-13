@@ -1,9 +1,8 @@
 package ticTacToe.printer;
 
-import ticTacToe.printer.*;
 import ticTacToe.gameEngine.*;
 /**
- * Created by abbythompson
+ * Printer to print the state of the board when called.
  */
 public class BoardPrinter {
     private Game game;

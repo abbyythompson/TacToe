@@ -1,7 +1,7 @@
 package ticTacToe;
 
 /**
- * Created by abbythompson on 13/09/18.
+ * Enums for the state of the game.
  */
 public enum Status {
 
