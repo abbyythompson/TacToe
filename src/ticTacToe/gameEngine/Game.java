@@ -23,7 +23,7 @@ public class Game {
         return true;
     }
 
-    public void move(int i, int j){
+    public void processMove(int i, int j){
         switch (status) {
             case PLAYER1_TURN:
                 boardState[i][j] = 1;
@@ -47,7 +47,6 @@ public class Game {
         };
     }
 
-    //should just check from the last move
     public boolean isWinner(){
         int player = 0;
         switch (status) {

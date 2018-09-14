@@ -46,7 +46,8 @@ public class TicTacToe {
                 System.out.println(Constants.TURN_ACCEPTED);
 
                 // Update the gameState and print the board to reflect their move.
-                game.move(coord[0], coord[1]);
+                game.processMove(coord[0], coord[1]);
+
                 boardPrinter.printBoard();
 
                 checkWinner();
