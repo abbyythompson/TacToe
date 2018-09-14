@@ -1,6 +1,7 @@
 package ticTacToe.gameEngine;
 
 import ticTacToe.*;
+import ticTacToe.printer.*;
 /**
  * Game Engine to run the backend of the game and update the board.
  */
@@ -22,7 +23,7 @@ public class Game {
         return true;
     }
 
-    public void move(int i, int j){
+    public void processMove(int i, int j){
         switch (status) {
             case PLAYER1_TURN:
                 boardState[i][j] = 1;
@@ -46,7 +47,6 @@ public class Game {
         };
     }
 
-    //should just check from the last move
     public boolean isWinner(){
         int player = 0;
         switch (status) {
@@ -124,5 +124,20 @@ public class Game {
     }
     public void setStatus(Status s){
         status = s;
+    }
+
+    public String getTurn() {
+        String turn = "";
+
+        switch (status) {
+            case PLAYER1_TURN:
+                turn = Constants.P1_TURN;
+            break;
+            case PLAYER2_TURN:
+                turn = Constants.P2_TURN;
+            break;
+        }
+
+        return turn;
     }
 }
