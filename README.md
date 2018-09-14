@@ -1,5 +1,5 @@
 # Tic Tac Toe, the game of champions
-A Console Game.  
+A Terminal 2 User Game.  
 
 How to Play 
 --
