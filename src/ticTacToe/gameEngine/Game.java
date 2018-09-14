@@ -1,6 +1,7 @@
 package ticTacToe.gameEngine;
 
 import ticTacToe.*;
+import ticTacToe.printer.*;
 /**
  * Game Engine to run the backend of the game and update the board.
  */
@@ -124,5 +125,20 @@ public class Game {
     }
     public void setStatus(Status s){
         status = s;
+    }
+
+    public String getTurn() {
+        String turn = "";
+
+        switch (status) {
+            case PLAYER1_TURN:
+                turn = Constants.P1_TURN;
+            break;
+            case PLAYER2_TURN:
+                turn = Constants.P2_TURN;
+            break;
+        }
+
+        return turn;
     }
 }
