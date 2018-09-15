@@ -16,4 +16,6 @@ public class Constants {
 
     public static final String TURN_WINNER = "ME OH MY I HAVE ENJOYED THAT YES BOII. You won.";
     public static final String TURN_DRAW = "ME OH MY YOU TRIED. You tied.";
+
+    public static final String PLAY_AGAIN = "Do you want to play again? y/n";
 }

@@ -14,13 +14,46 @@ public class TicTacToe {
     private final int NUM_OF_COORDS = 2;
     private final int MIN_X_VALUE = 0, MIN_Y_VALUE = 0, MAX_X_VALUE = 2, MAX_Y_VALUE = 2;
 
-    public static void main (String[] args){ new TicTacToe().play(); }
+    public static void main (String[] args){
+        Scanner scanner = new Scanner(System.in);
 
-    public void play(){
+        boolean wantToPlay = true;
+
+        while(wantToPlay) {
+            new TicTacToe().play(scanner);
+
+            System.out.println(Constants.PLAY_AGAIN);
+
+            switch (scanner.nextLine()) {
+                case "n":
+                    wantToPlay = false;
+                    break;
+                case "no":
+                    wantToPlay = false;
+                    break;
+                case "yes":
+                    wantToPlay = true;
+                    break;
+                case "y":
+                    wantToPlay = true;
+                    break;
+                case "Yes":
+                    wantToPlay = true;
+                    break;
+                case "Y":
+                    wantToPlay = true;
+                    break;
+                default: wantToPlay = false;
+                    break;
+            }
+        }
+    }
+
+    public void play(Scanner scanner){
         game = new Game();
         game.start();
         boardPrinter = new BoardPrinter(game);
-        Scanner scanner = new Scanner(System.in);
+
 
         System.out.println(Constants.WELCOME);
         boardPrinter.printBoard();
