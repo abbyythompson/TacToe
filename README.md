@@ -1,5 +1,5 @@
 # Tic Tac Toe, the game of champions
-A Terminal 2 User Game.  
+A 2 Player Game.  
 
 How to Play 
 --
