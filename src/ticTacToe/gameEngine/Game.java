@@ -9,9 +9,11 @@ public class Game {
     protected int[][] boardState;
     private Status status;
     private int numberTurns = 0;
+    protected int[] prevCoord;
 
     public Game() {
         this.boardState = new int[3][3];
+        this.prevCoord = new int[2];
         this.status = Status.INIT;
     }
 
@@ -24,6 +26,7 @@ public class Game {
     }
 
     public void processMove(int i, int j){
+
         switch (status) {
             case PLAYER1_TURN:
                 boardState[i][j] = 1;
@@ -32,6 +35,9 @@ public class Game {
                 boardState[i][j] = 2;
                 break;
         };
+
+        prevCoord[0] = i;
+        prevCoord[1] = j;
 
         numberTurns++;
     }
@@ -139,5 +145,13 @@ public class Game {
         }
 
         return turn;
+    }
+
+    public void undo() {
+        if(prevCoord != null && numberTurns != 0) {
+            boardState[prevCoord[0]][prevCoord[1]] = 0;
+            changeTurn();
+            numberTurns--;
+        }
     }
 }
