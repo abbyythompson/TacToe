@@ -9,8 +9,15 @@ Go to this jar file in your terminal and type "java -jar TacToe.jar"
 
 Enjoy!
 
+Features
+--
+- The users can play again after they quit or finish the game. 
+- The users can undo a move if they input a coordinate incorrectly. 
+-- "z" will undo the last move. 
+- "q" quits the game. 
 
 Assumptions
 --
-- I have assumed that one game is wanting to be played for each run of the executable. 
-- I have assumed that the user understands that the restrictions of input are x and y values of 1 : 3. 
+- I have assumed the user understands the restrictions of input are x and y values of 1 : 3 when they start the game. 
+
+
