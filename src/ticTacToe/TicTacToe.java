@@ -24,28 +24,7 @@ public class TicTacToe {
 
             System.out.println(Constants.PLAY_AGAIN);
 
-            switch (scanner.nextLine()) {
-                case "n":
-                    wantToPlay = false;
-                    break;
-                case "no":
-                    wantToPlay = false;
-                    break;
-                case "yes":
-                    wantToPlay = true;
-                    break;
-                case "y":
-                    wantToPlay = true;
-                    break;
-                case "Yes":
-                    wantToPlay = true;
-                    break;
-                case "Y":
-                    wantToPlay = true;
-                    break;
-                default: wantToPlay = false;
-                    break;
-            }
+            wantToPlay = playAgainAnswer(scanner.nextLine());
         }
     }
 
@@ -69,24 +48,28 @@ public class TicTacToe {
             if(playersMove.contentEquals("q")) {  // PLAYER QUITS THE GAME
                 game.setStatus(Status.FINISHED);
                 System.out.println(Constants.QUIT);
-
+                break;
             }
 
-            int[] coord = isValidMove(playersMove);
+            if(playersMove.contentEquals("z")) {  // PLAYER UNDOS MOVE
+                game.undo();
+
+            } else {
+                int[] coord = isValidMove(playersMove);
 
 
-            if (coord != null){
-                System.out.println(Constants.TURN_ACCEPTED);
+                if (coord != null) {
+                    System.out.println(Constants.TURN_ACCEPTED);
 
-                // Update the gameState and print the board to reflect their move.
-                game.processMove(coord[0], coord[1]);
+                    // Update the gameState and print the board to reflect their move.
+                    game.processMove(coord[0], coord[1]);
 
-                boardPrinter.printBoard();
+                    checkWinner();
 
-                checkWinner();
-
-                game.changeTurn();
+                    game.changeTurn();
+                }
             }
+            boardPrinter.printBoard();
         }
     }
 
@@ -135,6 +118,35 @@ public class TicTacToe {
             game.setStatus(Status.FINISHED);
             System.out.println(Constants.TURN_DRAW);
         }
+    }
+
+    public static boolean playAgainAnswer(String answer){
+        Boolean output;
+
+        switch (answer) {
+            case "n":
+                output = false;
+                break;
+            case "no":
+                output = false;
+                break;
+            case "yes":
+                output = true;
+                break;
+            case "y":
+                output = true;
+                break;
+            case "Yes":
+                output = true;
+                break;
+            case "Y":
+                output = true;
+                break;
+            default: output = false;
+                break;
+        }
+
+        return output;
     }
 
 }
