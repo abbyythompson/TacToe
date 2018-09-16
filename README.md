@@ -13,7 +13,7 @@ Features
 --
 - The users can play again after they quit or finish the game. 
 - The users can undo a move if they input a coordinate incorrectly. 
--- "z" will undo the last move. 
+- "z" will undo the last move. 
 - "q" quits the game. 
 
 Assumptions
